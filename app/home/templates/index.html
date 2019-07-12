@@ -1,0 +1,35 @@
+{% extends '_base.html' %}
+
+{% from '_imghelper.html' import create_img_src %}
+
+{% block head %}
+    <title>Causas comunes</title>
+    <link href="{{url_for('home.static', filename='css/flickity.css')}}" rel="stylesheet">
+    <link href="{{url_for('home.static', filename='css/index.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <!-- LANDING -->
+    {% include 'index_sections/index_landing.html' %}
+
+    <!-- MANIFIESTO -->
+    {% include 'index_sections/index_manifiesto.html' %}
+
+    <!-- PROPUESTAS -->
+    {% include 'index_sections/index_propuestas.html' %}
+
+    <!-- NOVEDADES -->
+    {% include 'index_sections/index_novedades.html' %}
+
+    <!-- CANDIDATES -->
+    <!-- {% include 'index_sections/index_candidates.html' %} -->
+
+    <!-- EVENTOS -->
+    {% include 'index_sections/index_eventos.html' %}
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{url_for('home.static', filename='js/index.js')}}"></script>
+    <script src="{{url_for('home.static', filename='js/flickity.pkgd.min.js')}}"></script>
+{% endblock %}

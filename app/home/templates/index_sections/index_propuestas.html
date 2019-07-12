@@ -1,0 +1,22 @@
+{% from 'index_sections/_itempropuesta.html' import create_item_propuesta %}
+
+<section id="propuestas" class="propuestas section jumbotron jumbotron-fluid">
+  <div class="container text-center">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+          <h2 class="section__title">{{dtextos['propuestas']['titulo']}}</h2>
+          <p class="section__subtitle mb-5">{{dtextos['propuestas']['subtitulo']}}</p>
+          <div class="row justify-content-center">
+            <div class="col-md-10">
+              <!-- Flickity HTML init -->
+              <div class="carousel" data-flickity='{ "groupCells": true }'>
+                {% for itm in itemspropuestas %}
+                    {{ create_item_propuesta(itm['imagen_fondo'], itm['icono'], itm['titulo'], itm['texto'], itm['pagina'], isstatic=isstatic) }}
+                {% endfor %}
+              </div>
+            </div>
+          </div>  
+      </div>
+    </div>
+  </div>
+</section>

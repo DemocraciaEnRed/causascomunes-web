@@ -1,0 +1,129 @@
+@import 'vars';
+
+nav {
+    a.nav-link.active {@include border-radius(2rem);}
+    form {
+        input.form-control {
+            @include border-radius(2rem);
+        }
+    }
+    .ondita-azul{
+        position: absolute;
+        display:none;
+        top: 0;
+        right: 0;
+        width: 80%;
+        z-index: -1;
+        @media (min-width: $width-large) {
+            display:block;
+        }
+        @media (min-width: $width-xlarge) {
+        width: 75%;
+        }
+    }
+}
+
+.navbar {
+    background-color:$white;
+    @media (min-width: $width-large) {
+        background-color:inherit;
+    }
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    justify-content: space-between;
+    // toggler menu
+    .navbar-toggler {
+        border: none;
+        cursor: pointer;
+        &:focus {
+            outline: 0;
+        }
+    }
+    .form-group {
+        position: relative;
+        margin: 0 auto;
+    }
+    .form-control {
+        border-radius: 1.25rem;
+        border-color: $color-principal-azul;
+        max-width: 146px;
+    }
+    .form-control-icon {
+        position: absolute;
+        z-index: 2;
+        display: block;
+        pointer-events: none;
+        right: 1rem;
+    }
+}
+
+.nav-link {
+    font-size: $font-size-small;
+    color: $color-principal-azul;
+    &:after {
+        content: " ";
+        margin-top: 10px;
+        height: 5px;
+        display: none;
+    }
+    &.active, 
+    &:hover {
+        border: none;
+        &:after {
+            border-radius: 20px;
+            display: none;
+            background: $white;
+        }
+    }
+    &.active {
+        font-weight: 600;
+    }
+}
+
+.navbar-collapse {
+    flex-grow: 0;
+}
+
+// logo
+.navbar-brand {
+    margin-right: 0;
+    img {
+        height: $logo-height-mobile;
+    }
+} 
+
+@media (min-width: $width-large) {
+    .navbar {
+        box-shadow: none;
+        .form-control {
+            border-color: $white;
+        }
+    }
+    .navbar-brand {
+        img {
+            height: $logo-height-desktop;
+        }
+    }  
+    .nav-link {
+        color: $white;
+        &:after {
+            display: block;
+        }
+        &.active,
+        &:hover {
+            color: $white;
+            &:after {
+                display: block;
+            }
+        }
+    }
+}
+
+#navbarSearch {
+    color: $white;
+    input {
+        background-color: $color-principal-azul;
+    }
+    input::placeholder {
+        color: $white;
+    }
+}
