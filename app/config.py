@@ -9,15 +9,15 @@ class BaseConfig(object):
     # SQLALCHEMY_DATABASE_URI = 'mysql+mysqldb://flask@127.0.0.1:3306/flaskdb?charset=utf8'
     SQLALCHEMY_DATABASE_URI = 'mysql+mysqldb://root:123@127.0.0.1:3300/flaskdb?charset=utf8'
     # DIRECTUS_URL_EXTERNAL = 'http://causascomunes.mooo.com/images'
-    DIRECTUS_URL_EXTERNAL = os.environ.get('DIRECTUS_URL_EXTERNAL') or 'http://localhost:9090'
-    DIRECTUS_URL_INTERNAL = os.environ.get('DIRECTUS_URL_INTERNAL') or 'http://localhost:9090'
+    DIRECTUS_URL_EXTERNAL = os.environ.get('DIRECTUS_URL_EXTERNAL')
+    DIRECTUS_URL_INTERNAL = os.environ.get('DIRECTUS_URL_INTERNAL')
     # DIRECTUS_URL_EXTERNAL = 'http://192.168.0.92:9090'
     # DIRECTUS_URL_INTERNAL = 'http://192.168.0.92:9090'
     # DIRECTUS_URL_EXTERNAL = 'http://localhost:9090'
     DIRECTUS_API_PATH = '/api/1.1/'
     # DIRECTUS_TOKEN = '4VIinWnI5zfyoJc5y69aBVyognPX0kpp'
-    DIRECTUS_TOKEN = os.environ.get('DIRECTUS_TOKEN') or 'HUhmGTscM6tQv4KjK7NIlcsq5aklrcjM'
-    USE_DIRECTUS = True
+    DIRECTUS_TOKEN = os.environ.get('DIRECTUS_TOKEN')
+    USE_DIRECTUS = os.environ.get('USE_DIRECTUS')
     USE_SCSS = True
     USE_EXTENSIONS = False
     # SERVER_HOST = '192.168.88.20'

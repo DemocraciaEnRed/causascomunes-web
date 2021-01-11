@@ -20,7 +20,7 @@ def create_app():
         create_scss_watch(app)
     # if app.config['USE_EXTENSIONS']:
     #     create_extensions(app)
-    if app.config['USE_DIRECTUS']:
+    if app.config['USE_DIRECTUS'] == 'True':
         import app.directus as directus
         directus.init_flask_app(app.config['DIRECTUS_URL_INTERNAL'], app.config['DIRECTUS_URL_EXTERNAL'], app.config['DIRECTUS_API_PATH'], app.config['DIRECTUS_TOKEN'])
 
