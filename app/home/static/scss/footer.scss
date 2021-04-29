@@ -1,6 +1,45 @@
+@import 'vars';
+
 $color-copyright: #696969;
+
+.newsletter {
+	background-image: url('/static/img/manifiesto-background.png');
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-color: $white;
+	.card {
+		height: 100%;
+		justify-content: center;
+	}
+
+	.card-body {
+		flex: 0;
+    }
+
+  .card-title {
+		font-size: 1.45rem;
+		@media (min-width: $width-medium) {
+	    font-size: 1.85rem;
+		}
+  }
+
+	.submsg {
+		font-weight: bold;
+	}
+}
+
+footer a img {
+    height: 46px;
+}
 
 .footer__copyright {
     color: $color-copyright;
     font-size: 0.9rem;
+    a {
+        color: $color-principal-azul;
+    }
 }
+
+.logo-foot-cc{height: 90px;}
+
+.luminate-logo { height: 38px; }

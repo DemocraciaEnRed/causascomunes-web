@@ -1,24 +1,28 @@
 @import 'vars';
 
+header {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    .ondita-azul{
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        display:none;
+        @media (min-width: $width-large) {
+            display: block;
+        }
+        width: 75%;
+        @media (min-width: $width-xlarge) { width: 65%; }
+        @media (min-width: $width-xxlarge) { width: 55%; }
+    }
+}
 nav {
     a.nav-link.active {@include border-radius(2rem);}
     form {
         input.form-control {
             @include border-radius(2rem);
-        }
-    }
-    .ondita-azul{
-        position: absolute;
-        display:none;
-        top: 0;
-        right: 0;
-        width: 80%;
-        z-index: -1;
-        @media (min-width: $width-large) {
-            display:block;
-        }
-        @media (min-width: $width-xlarge) {
-        width: 75%;
         }
     }
 }
@@ -54,6 +58,15 @@ nav {
         pointer-events: none;
         right: 1rem;
     }
+    .navbar-brand{
+        float: right;
+        background-color:white;
+        border-radius: 1.25rem;
+        margin: 0 auto;
+        img {
+            height: $logo-height-mobile;
+        }
+    }
 }
 
 .nav-link {
@@ -65,7 +78,7 @@ nav {
         height: 5px;
         display: none;
     }
-    &.active, 
+    &.active,
     &:hover {
         border: none;
         &:after {
@@ -83,26 +96,23 @@ nav {
     flex-grow: 0;
 }
 
-// logo
-.navbar-brand {
-    margin-right: 0;
-    img {
-        height: $logo-height-mobile;
-    }
-} 
-
 @media (min-width: $width-large) {
     .navbar {
         box-shadow: none;
+        justify-content: flex-end;
         .form-control {
             border-color: $white;
         }
     }
     .navbar-brand {
+        position: absolute;
+        left: 20px;
+        float: none;
+        padding: 10px;
         img {
             height: $logo-height-desktop;
         }
-    }  
+    }
     .nav-link {
         color: $white;
         &:after {
@@ -118,6 +128,25 @@ nav {
     }
 }
 
+.navbar.fixed {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    &.scrolling {
+        background-color: $white;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        .nav-link {
+            color: $color-principal-azul;
+            &.active,
+            &:hover {
+                &:after {
+                    background-color: $color-principal-azul;
+                }
+            }
+        }
+    }
+}
+
 #navbarSearch {
     color: $white;
     input {
@@ -125,5 +154,153 @@ nav {
     }
     input::placeholder {
         color: $white;
+    }
+}
+
+#dropdown-novedades {
+	.btn-novedades {
+	    border: none;
+	    outline: none;
+	    border-radius: 2rem;
+	    position: relative;
+	    padding-right: 0;
+	    @media (min-width: $width-large) {
+	        top: -6px;
+	        padding-right: 1rem;
+	    }
+	    background-color: $white;
+	    color: $color-principal-azul;
+	    border: 1px solid $white;
+	    @media (min-width: $width-large) {
+	    	border: 1px solid $color-principal-azul;
+	    }
+	    &:hover,
+	    &[aria-expanded=true] {
+		    background: $color-principal-azul;
+			color: $white;
+	    	border: 1px solid $white;
+		    @media (min-width: $width-large) {
+			    background: none;
+				color: $white;
+		    	border: 1px solid $white;
+		    }
+	        sup {
+	            color: $white;
+	            background-color: $color-principal-azul;
+	            border: 1px solid $white;
+	        }
+	        &:after {
+	            display: none;
+	        }
+	    }
+	    sup {
+	        color: $white;
+	        background-color: $color-principal-azul;
+	        border: 1px solid $white;
+	        border-radius: 100%;
+	        left: -5px;
+	        top: 0;
+	        width: 18px;
+	        height: 18px;
+	        display: inline-block;
+	        vertical-align: top;
+	        line-height: 16px;
+	        @media (min-width: $width-large) {
+	            border: 1px solid $color-principal-azul;
+	            color: $color-principal-azul;
+	            background-color: $white;
+	        }
+	    }
+	    &:focus {
+	        box-shadow: none;
+	    }
+	    &:after {
+	        display: none;
+	    }
+	    > span {
+	        display: none;
+	        @media (min-width: $width-large) {
+	            display: inline;
+	        }
+	    }
+
+	    i {
+	        font-size: 24px;
+	        @media (min-width: $width-large) {
+	            font-size: inherit;
+	        }
+	    }
+	}
+
+	.dropdown-menu {
+	    border-radius: 5px;
+	    box-shadow: 0 3px 17px 0 rgba(36, 73, 154, 0.51);
+	    border: none;
+	    padding: 10px;
+		max-height: 80vh;
+		overflow-y: scroll;
+	    right: 0;
+	    top: 52px;
+	    left: -123px;
+	    right: -15px;
+	    @media (min-width: $width-large) {
+	        max-width: 270px;
+	        min-width: unset;
+	        left: -100px;
+	        top: 100%;
+	        right: 0;
+	    }
+	}
+	.dropdown-item {
+	    padding: 10px 0;
+	    width: auto;
+	    border-bottom: 1px solid #eee;
+		white-space: normal;
+	    &:last-child {
+	        border-bottom: none;
+	    }
+	    .title {
+	        font-size: $font-size-xsmall;
+	        color: #696969;
+	    }
+	    img {
+	        width: 30px;
+	    }
+	    &:hover,
+	    &:active,
+	    &:focus {
+	        background: none;
+	        outline: none;
+	    }
+	    .hashtag {
+	        font-size: $font-size-xsmall;
+	    }
+	}
+}
+
+@media (min-width: $width-large) {
+    .nav-item.dropdown {
+        order: 1;
+    }
+    .navbar.scrolling {
+		#dropdown-novedades {
+	        .btn-novedades {
+	            &:hover,
+	            &[aria-expanded=true] {
+	                background-color: $color-principal-azul;
+	                color: $white;
+	                sup {
+	                    background-color: $white;
+	                    color: $color-principal-azul;
+	                    border: 1px solid $color-principal-azul;
+	                }
+	            }
+	            sup {
+	                background-color: $color-principal-azul;
+	                color: $white;
+	                border: 1px solid $white;
+	            }
+            }
+        }
     }
 }

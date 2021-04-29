@@ -1,32 +1,17 @@
-$('.scrollTo').click(function() {
-    var sectionActive = $('#nav-secondary .nav-link.active').attr('href')
-    var sectionTo = $(this).attr('href');
-    var scrollTo = $(sectionTo).offset().top;
+$('.scrollTo').click(function(e) {
+    e.preventDefault();
 
-    if (isMobile){
-        //si estamos arriba del tdo o en "de qué se trata" el offset top
-        //no cuenta con que el body pierde el height cuando el nav se convierte en fixed
-        if (!sectionActive || sectionActive=='#definicion')
-            scrollTo -= $('.nav-secondary').height()
-        //offsetear el anchor de a donde scrolleamos con el height del nav
-        if (sectionTo != '#definicion')
-            scrollTo -= $('.nav-secondary').height() - 1;
-    }
+    var sectionTo = $(this).attr('href');
+    var scrollTo = $(sectionTo).offset().top - $('.nav-secondary').outerHeight() - $('#navbar').outerHeight();
 
     $('html, body').animate({
       scrollTop: scrollTo
-    }, 500);
+    }, 1000);
 });
 
 var isMobile = false;
-var scroller_anchor = $(".portada-seccion").offset().top + $(".portada-seccion").innerHeight();
+var scroller_anchor = $(".portada-seccion").offset().top + $(".portada-seccion").innerHeight() - 2 * $("#navbar").outerHeight();
 var scrollItem = $("#nav-secondary");
-
-checkScroll();
-
-$(window).resize(function(){
-    checkScroll()
-});
 
 function scrollHandler() {
     if ($(this).scrollTop() >= scroller_anchor && !scrollItem.hasClass('position-fixed') ) {    
@@ -39,14 +24,20 @@ function scrollHandler() {
 
 function setMenuItemActive(){
     var scrollPos = $(document).scrollTop();
-    var navHei =  $('.nav-secondary').height();
+    var navHei =  $('#nav-secondary').outerHeight();
+    var navbarHei = $('#navbar').outerHeight();
     $('#nav-secondary .nav-link').each(function () {
         var currLink = $(this);
         var refElement = $(currLink.attr("href"));
-        var refElTop = refElement.position().top - navHei;
+        var refElTop = parseInt(refElement.offset().top - navHei - navbarHei);       
         if (refElTop <= scrollPos && refElTop + refElement.outerHeight() > scrollPos) {
+           if (!currLink.hasClass('active')) {
             $('#nav-secondary .nav-link').removeClass("active");
             currLink.addClass("active");
+            if (isMobile){
+                $('#nav-secondary').animate({scrollLeft: currLink.offset().left}, 300);
+            }
+           }
         }
         else {
             currLink.removeClass("active");
@@ -54,16 +45,19 @@ function setMenuItemActive(){
     });
 }
 
-function checkScroll() {
-    if ($(window).width() <= 768 && !isMobile) {
-        isMobile = true;
-        $(window).scroll(scrollHandler);
-    } else if ($(window).width() > 768 && isMobile) {
+function checkWidth() {
+     if ($(window).width() <= 768) {
+        isMobile = true; 
+    } else {
         isMobile = false;
-        $(window).off("scroll", scrollHandler);
-        scrollItem.removeClass('position-fixed');
     }
 }
 
+$(document).ready(function(){
+    $(window).scroll(scrollHandler);
+    checkWidth();
 
-// TODO: comportamiento swipe horizontal para mobile
+    $(window).resize(function(){
+        checkWidth()
+    });
+});

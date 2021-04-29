@@ -6,29 +6,42 @@
     <title>Causas comunes</title>
     <link href="{{url_for('home.static', filename='css/flickity.css')}}" rel="stylesheet">
     <link href="{{url_for('home.static', filename='css/index.css')}}" rel="stylesheet">
-    <link href="{{url_for('home.static', filename='css/section.css')}}" rel="stylesheet">
+    <link href="{{url_for('home.static', filename='css/causa.css')}}" rel="stylesheet">
+    <link href="{{url_for('home.static', filename='css/scrolly.css')}}" rel="stylesheet">
+    <link href="{{url_for('home.static', filename='css/featherlight.min.css')}}" rel="stylesheet">
 {% endblock %}
 
 {% block body %}
+<div class="causa-wrapper causa-{{causa}}">
     <!-- LANDING -->
     {% include 'causa_sections/causa_landing.html' %}
 
     <!-- DEFINICION -->
     {% include 'causa_sections/causa_definicion.html' %}
 
-    <!-- TEMAS -->
-    {% include 'causa_sections/causa_temas.html' %}
+    <!-- CHANGE -->
+    {% include 'causa_sections/causa_change.html' %}
 
-    <!-- SEGUIDORES -->
-    {% include 'causa_sections/causa_seguidores.html' %}
+    <!-- SCROLLY -->
+    {% include 'causa_sections/causa_scrolly.html' %}
 
-    <!-- ACTIVIDADES -->
-    {% include 'causa_sections/causa_actividades.html' %}
+    {% if dmapa %}
+      <!-- MAPA -->
+      {% include 'causa_sections/causa_mapa.html' %}
+    {% endif %}
 
+    <!-- COLABORAR -->
+    {% include 'causa_sections/causa_colaborar.html' %}
+
+    <!-- COLABORAR -->
+    {% include 'causa_sections/causa_floating_arrows.html' %}
+
+</div>
 {% endblock %}
 
 {% block scripts %}
-    <script src="{{url_for('home.static', filename='js/flickity.pkgd.min.js')}}"></script>
+    <script src="{{url_for('home.static', filename='js/lib/flickity.pkgd.min.js')}}"></script>
     <script src="{{url_for('home.static', filename='js/navsecondary.js')}}"></script>
-    <script src="{{url_for('home.static', filename='js/section.js')}}"></script>
+    <script src="{{url_for('home.static', filename='js/causa.js')}}"></script>
+  	<script src="{{url_for('home.static', filename='js/lib/featherlight.min.js')}}"></script>
 {% endblock %}

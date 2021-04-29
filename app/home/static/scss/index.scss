@@ -10,11 +10,6 @@
 @media(min-width:992px){MD}
 @media(min-width:1200px){LG}*/
 
-body {
-	font: 100% $font-stack;
-	color: black;
-}
-
 img {
 	max-width: 100%;
 }
@@ -33,6 +28,7 @@ img {
 }
 
 .section {
+	position:relative;/*necesario para que anden manchas parallax!*/
 	background-color: $white;
 	&.jumbotron-fluid {
 		margin-bottom: auto;
@@ -44,12 +40,12 @@ img {
 		}
 	}
 	/* intercalar colores de fondo, seguro terminemos hardcodeandolo */
-	&:nth-child(odd) {
+	/* &:nth-child(odd) {
 		background-color: $color-fondo-1;
 	}
 	&:nth-child(even) {
 		background-color: $color-fondo-2;
-	}
+	} */
 }
 
 .section__title {
@@ -61,7 +57,7 @@ img {
 	}
 }
 
-.section__subtitle {
+.section__subtitle, .section__subtitle p {
 	font-size: $font-size-xsmall;
 	line-height: $line-height-small;
 	margin-top: 1rem;
@@ -69,71 +65,6 @@ img {
 		font-size: $font-size-small;
 		line-height: $line-height-medium;
 	}
-}
-
-.btn-primary {
-	border-radius: 2rem;
-	background-color: $color-principal-azul;
-	border-color: $color-principal-azul;
-	color: $white;
-	border-width: 3px;
-	&:hover {
-		background-color: $white;
-		color: $color-principal-azul;
-	}
-}
-
-.btn-primary-inverted {
-	background-color: $white;
-	border-color: $white;
-	color: $color-principal-azul;
-	&:hover {
-		background-color: $color-principal-azul;
-		border-color: $white;
-		color: $white;
-	}
-}
-
-.btn-bold {
-	font-weight: 600;
-}
-
-.btn-lg {
-	padding: .75rem 3rem;
-	@media (max-width: $width-medium) {
-		font-size: $font-size-base;
-	}
-}
-
-.btn-md {
-	padding: .5rem 2.5rem;
-}
-
-.btn-shadow {
-	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-}
-
-.card {
-	border-radius: 20px;
-	border: none;
-}
-
-.card-with-shadow {
-	box-shadow: 0 40px 40px 0 rgba(119, 119, 119, 0.15);
-}
-
-.card-title {
-	font-size: $font-size-small;
-}
-
-.form-control {
-	border-radius: 20px;
-	border: solid 1px rgba(60, 60, 60, 0.3);
-}
-
-label {
-	color: $color-texto-light;
-	padding-left: 1rem;
 }
 
 
@@ -151,21 +82,32 @@ label {
 	align-items: center;
 	justify-content: space-around;
 	background-color: $white;
+	background-image: url('/static/img/manifiesto-background.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+  padding-top: 9rem;
+	padding-bottom: 4rem;
+	margin-bottom: 0;
 	@media (min-width: $width-medium) {
 		flex-wrap: nowrap;
 		justify-content: center;
 		align-items: end;
 	}
-	.container {
-		@media (min-width: $width-medium) {
-			max-width: 35%;
-		}
-	}
 	@media (min-width: $width-large) {
+  	padding-top: 12rem;
 		background-color: transparent;
 	}
+	.container {
+		@media (min-width: $width-large) {
+			max-width: 40%;
+		}
+	}
 	h1 img {
-		width: 204px;
+		width: 304px;
+		@media (min-width: $width-small) {
+			max-width: 455px;
+			width: 100%;
+		}
 		@media (min-width: $width-large) {
 			max-width: 525px;
 			width: 100%;
@@ -191,10 +133,8 @@ label {
 /* Manifiesto */
 
 .manifiesto {
-	background-image: url('/static/img/manifiesto-background.svg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-color: $color-fondo-2;
+	background-color: $sectionBgColorWhite;
+	position: relative;
 	p {
 		color: $color-texto-light;
 		font-size: $font-size-xsmall;
@@ -204,124 +144,129 @@ label {
 			line-height: $line-height-medium;
 		}
 	}
-}
 
-.section__signature {
-	color: $color-texto-light;
-	font-style: italic;
-	@media (min-width: $width-medium) {
-		font-size: $font-size-small;
-	}
-	&:before {
-		content: " ";
-		background-color: $color-principal-azul;
-		width: 55px;
-		height: 5px;
-		margin-right: 2rem;
-		display: inline-block;
-		vertical-align: middle;
+	/* para el parallax */
+	.video, .col-lg-6{z-index: $parallaxZIndexOnTop;}
+	.manifiesto-frase {
+		color: $color-principal-azul;
+		z-index: $parallaxZIndexOnTop;
+		font-size: 40px;
 		@media (min-width: $width-medium) {
-			opacity: 0.5;
+			font-size: 55px;
+		}
+		margin-bottom: 30px;
+	}
+
+	.row-manifiesto-text {
+		text-align: justify;
+	}
+
+	.btn-leer-mas {
+		margin-bottom: 15px;
+		padding-left: 30px;
+		padding-right: 30px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.section__signature {
+		color: $color-texto-light;
+		font-style: italic;
+		@media (min-width: $width-medium) {
+			font-size: $font-size-small;
+		}
+		&:before {
+			content: " ";
+			background-color: $color-principal-azul;
+			width: 55px;
+			height: 5px;
+			margin-right: 2rem;
+			display: inline-block;
+			vertical-align: middle;
+			@media (min-width: $width-medium) {
+				opacity: 0.5;
+			}
 		}
 	}
 }
 
 
-/* Propuestas */
+/* Causas */
 
-.carousel {
-	background: $color-fondo-1;
+.causas {
+	background-image: url('/static/img/manifiesto-background.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	.container-fluid{
+	  @media (min-width: $width-xlarge) {
+			padding: 0 12rem;
+	  }
+  }
+
+	.caja-causa {
+		.inner{
+			$border-rad: 20px;
+
+			border-radius: $border-rad;
+			&:hover {
+				img{	opacity: 0.3; }
+			}
+
+			@each $causa, $color in $colors-causas{
+				&.inner-#{$causa} {background-color: $color;}
+			}
+
+			img {
+				position: relative;
+				opacity: 0.2;
+				border-radius: $border-rad;
+				width: 100%;
+			}
+
+			h4 {
+				position: absolute;
+				transform: translate(50%,-50%);
+				top: 50%;
+				right: 50%;
+				font-size: 2rem;
+				color: white;
+				font-weight: bolder;
+				text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.63);
+			}
+		}
+	}
 }
 
-.carousel-cell {
-    width: 80%;
-    height: 340px;        
-    margin-right: 1rem;
-    @media (min-width: $width-medium) {
-        width: 30%;
-        margin-right: 2rem;
-        height: 400px;
-    }
-	border-radius: 20px;
-	counter-increment: carousel-cell;
-    color: $white;
-    a:target, a:hover, a {
-        color: $white;
-        text-decoration: $white;
-    }
-    .title {
-        font-size: $font-size-small;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        @media (min-width: $width-medium) {
-            font-size: $font-size-large;
-        }
-    }
-    .text {
-        font-size: $font-size-xsmall;
-        @media (min-width: $width-medium) {
-            font-size: $font-size-base;
-        }
-    }
-    img {
-        height:6rem;
-    }
+
+/* Acciones */
+#acciones {
+	background-color: $sectionBgColorBlue;
+
+	.column-content{
+		.column-img {
+			height: 180px;
+		}
+
+		.column-title {
+			font-size: 2.7rem;
+			color: $color-principal-azul;
+		}
+
+		.btn{
+			padding: 0.65rem 1.8rem;
+		}
+	}
 }
 
-.flickity-button {
-    display: none;
-    box-shadow: 0 15px 15px 0 rgba(119, 119, 119, 0.15);
-    transition: box-shadow ease-in 0.1s;
-    &[disabled] {
-        visibility: hidden;
-    }
-    @media(min-width: $width-medium) {
-        display: block;
-    }
-    &:focus, 
-    &:hover {
-        box-shadow: 0 15px 15px 0 rgba(42,75,140, 0.5);
-    }
-}
-
-button.flickity-prev-next-button {
-    &.previous {
-        left: -70px;
-    }
-    &.next {
-        right: -70px;
-    }
-}
-
-.flickity-page-dots {
-    position: relative;
-    @media (min-width: $width-medium) {
-        visibility: hidden;
-    }
-    .dot {
-        width: 19px;
-        height: 19px;
-        border: solid 1px $color-principal-azul;
-        background-color: $white;
-    }
-}
-
-.flickity-button-icon {
-    path {
-        fill: $color-principal-azul;
-    }
-}
-
-.flickity-enabled.is-draggable .flickity-viewport{
-    cursor: auto;
-}
 
 /* Candidates */
 
-.section.candidates {
-	background-color: $color-principal-azul;
+.candidates {
+    color: $color-principal-azul;
+	background-color:$sectionBgColorWhite !important;
 	.section__title {
-		color: $white;
 		font-size: $font-size-large;
 		@media (min-width: $width-medium) {
 			font-size: $font-size-xxlarge;
@@ -329,7 +274,6 @@ button.flickity-prev-next-button {
 	}
 	.section__subtitle {
 		font-size: $font-size-xsmall;
-		color: $white;
 		margin-bottom: 1.5rem;
 		@media (min-width: $width-medium) {
 			font-size: $font-size-medium;
@@ -341,72 +285,49 @@ button.flickity-prev-next-button {
 			order: initial;
 		}
 	}
-}
 
+	.img-wrapper{
+		@include vertical-align-content();
 
-/* Novedades */
-
-.card--novedades {
-	box-shadow: 0 40px 40px 0 rgba(119, 119, 119, 0.15);
-	border-radius: 0;
-	background: $white;
-	.card-title {
-		font-size: $font-size-base;
-		@media(min-width: $width-medium) {
-			font-size: $font-size-medium;
-		}
-		a {
-			span {
-				display: inline-block;
-				@media(min-width: $width-medium) {
-					max-width: 80%;
-				}
-			}
-			.fa {
-				font-size: $font-size-large;
+		img{
+			border-radius: 20px;
+			@media (max-width: $width-medium) {
+				max-width: 340px;
+				margin: 0 auto;
 			}
 		}
 	}
 }
-
-.card-hashtag {
-	font-size: $font-size-xsmall;
-	display: inline-block;
-	background-color: #eff1f4;
-	padding: 0 1rem;
-	border-radius: 1rem;
-	line-height: 1.8;
-	margin-bottom: 0.5rem;
-	text-transform: capitalize;
-}
-
-.twitter-timeline__title {
-    color: $color-principal-azul;
-    font-size: $font-size-medium;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-    text-align: left;
-    @media (min-width: $width-medium){
-        font-size: $font-size-large;
-    }
-
-}
-
 
 /* Eventos */
 
 .eventos {
-	background-image: url('/static/img/manifiesto-background.svg');
+	background-image: url('/static/img/manifiesto-background.png');
 	background-repeat: no-repeat;
 	background-size: cover;
-	.list-group {
-		border-bottom: 1px solid rgba(0, 0, 0, .125);
-	}
 	.card {
 		height: 100%;
+		justify-content: center;
+	}
+
+	.card-body {
+		flex: 0;
+	}
+
+	.twitter-timeline__title {
+	    color: $color-principal-azul;
+	    font-size: $font-size-medium;
+	    margin-top: 1.5rem;
+	    margin-bottom: 1rem;
+	    font-weight: 600;
+	    text-align: left;
+	    @media (min-width: $width-medium){
+	        font-size: $font-size-large;
+	    }
+
 	}
 }
+
 
 .agenda {
 	.list-group-item {
@@ -445,3 +366,99 @@ button.flickity-prev-next-button {
 	}
 }
 
+
+.activa{
+	background-image: url('/static/img/manifiesto-background.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+
+    color: $color-principal-azul;
+    font-size: $font-size-small !important;
+    @media (min-width: $width-medium){
+		font-size: $font-size-medium !important;
+    }
+
+	.img-megafono-wrapper{
+		display: inline-block;
+		img{
+			position: relative;
+			top: -2px;
+			height: 55px;
+		    @media (min-width: $width-medium){
+				height: 75px;
+		    }
+		}
+	}
+
+	.col-paso {
+		padding: 0 0.6rem;
+	    @media (min-width: $width-large){
+			padding: 0 2rem;
+	    }
+		text-align: center;
+	    @media (min-width: $width-medium){
+	        text-align: left;
+	    }
+
+		.img-wrapper {
+			display: inline;
+		    @media (min-width: $width-medium){
+		       display: block;
+		    }
+			svg {
+				height: 50px;
+			    @media (min-width: $width-medium){
+			        height: 100px;
+			    }
+				/* LOS COLORES SE DEFINEN MÁS ABAJO */
+			}
+		}
+		.span-wrapper{
+			span {
+				@include vertical-align();
+			}
+		}
+	}
+
+	.row-carita{
+		@include border-radius(57px);
+		background-color: #E4EDFF;
+		.carita-wrapper{
+			margin: 0 auto;
+			font-weight: bold;
+			img{
+				height: 45px;
+			    @media (max-width: $width-medium){
+					display: block;
+					margin: 0 auto !important;
+					margin-bottom: 0.5rem !important;
+			    }
+			    @media (min-width: $width-medium){
+					position: relative;
+					top: 50%;
+					transform: translateY(-50%);
+			    }
+			}
+		}
+	}
+
+	.row-boton > div{
+		margin: 0 auto;
+		a {
+			font-weight: 600;
+		    font-size: $font-size-small !important;
+		    @media (min-width: $width-medium){
+				font-size: $font-size-medium !important;
+		    }
+		}
+	}
+
+	svg {
+		#_1, #_2, #_3, #_4 {
+			fill: $color-principal-azul;
+		}
+		#Elipse_343 {
+			stroke: $color-principal-azul;
+		}
+	}
+}

@@ -1,43 +1,57 @@
-<nav class="navbar navbar-expand-lg py-3 px-4">
-    <img class="ondita-azul" src="/static/img/home-background.svg">
-    <button class="navbar-toggler p-0" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <img src="{{ create_img_src(dimgsnav['menumobile'], isstatic=isstatic) }}" alt="Menu"/>
-    </button>
-    <a class="navbar-brand" href="{{ url_for('home.index') }}">
-        {% if request.endpoint=='home.index' %}
-            {% set logo = dimgsnav['logocolor'] %}
-        {% else %}
-            {% set logo = dimgsnav['logoblanco'] %}
-        {% endif %}
-        <img src="{{ create_img_src(logo, isstatic=isstatic) }}" alt="Causas Comunes"/>
-    </a>
-    <button class="navbar-toggler p-0" type="button" data-toggle="collapse" data-target="#navbarSearch" aria-controls="navbarSearch" aria-expanded="false" aria-label="Toggle search bar">
-        <img src="{{ create_img_src(dimgsnav['busqueda'], isstatic=isstatic) }}" alt="Buscar"/>
-    </button>
+<header>
+    <!-- Ondita azul de background -->
+    <img class="ondita-azul" src="{{ url_for('home.static', filename='img/home-background.svg') }}">
+    <nav id="navbar" class="navbar fixed navbar-expand-lg py-3 px-3 px-lg-4">
 
-    <div class="collapse navbar-collapse" id="navbarMenu">
-        <ul class="navbar-nav ml-md-5">
-            <li class="nav-item">
-                <a class="nav-link px-4 active" href="{{ url_for('home.index') }}">Inicio</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link px-4 scrollTo" href="#propuestas">Propuestas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link px-4 scrollTo" href="#eventos">Agenda</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link px-4" href="#">Contacto</a>
-            </li>
-        </ul>
-    </div>
+        <!-- Menú hamburguesa mobile (solo en vista mobile) -->
+        <button class="navbar-toggler p-0" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <img class="nav-menu-mobile" src="{{ url_for('home.static', filename='img/icons/menu_mobile.svg') }}" alt="Menu" />
+        </button>
 
-    <div class="collapse navbar-collapse" id="navbarSearch">
-        <form class="form-inline my-2 my-lg-0">
-            <div class="form-group">
-                <input class="form-control pr-4" type="text" placeholder="Buscar">
-                <span class="fa fa-search form-control-icon"></span>
-            </div>
-        </form>
-    </div>
-</nav>
+        <div class="navbar-brand">
+          <!-- Loguito de la esquina -->
+          <a href="{{ url_for('home.index') }}" class="mr-1 mr-md-3 ml-3 ml-md-0"><img src="{{ url_for('home.static', filename='img/logos/CC_LogoColor_chico.png') }}" alt="Causas Comunes" /></a>
+          <!--Instagram-->
+          <a target="_blank" rel="noopener noreferrer" class="ins-ic" href="https://www.instagram.com/causascomunes/" target="_blank">
+              <img class="md-5 mx-2" src="{{ url_for('home.static', filename='img/icons/social_instagram_icon.png') }}"></a>
+          <!-- Facebook -->
+          <a target="_blank" rel="noopener noreferrer" class="fb-ic" href="https://www.facebook.com/Causas-Comunes-449280685874685/" target="_blank">
+              <img class="md-5 mx-2" src="{{ url_for('home.static', filename='img/icons/social_facebook_icon.png') }}"></a>
+          <!-- Twitter -->
+          <a target="_blank" rel="noopener noreferrer" class="tw-ic" href="https://twitter.com/causas_comunes" target="_blank">
+              <img class="md-5 mx-2" src="{{ url_for('home.static', filename='img/icons/social_twitter_icon.png') }}"></a>
+        </div>
+
+        <!-- Menú de navegación  -->
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav ml-md-5">
+                <li class="nav-item">
+                    <a class="nav-link px-3 px-lg-4 {{navs['index']}}" href="{{ url_for('home.index') }}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    {% if request.endpoint in ['home.index'] %}
+                    <a class="nav-link px-3 px-lg-4 scrollTo {{navs['causas']}}" href="#causas">Causas</a>
+                    {% else %}
+                    <a class="nav-link px-3 px-lg-4 {{navs['causas']}}" href="{{ url_for('home.index') }}#causas">Causas</a>
+                    {% endif %}
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-3 px-lg-4" href="https://propuestas.causascomunes.org/">Propuestas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-3 px-lg-4" href="https://diagnostico.causascomunes.org/">Wikis</a>
+                </li>
+                <!--<li class="nav-item">
+                    <a class="nav-link px-3 px-lg-4 {{navs['cuentas']}}" href="{{ url_for('home.cuentas') }}">Cuentas claras</a>
+                </li>-->
+                <!--<li class="nav-item">
+                    <a class="nav-link px-3 px-lg-4 {{navs['colaboraciones']}}" href="{{ url_for('home.colaboraciones') }}">Colaboraciones</a>
+                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link px-3 px-lg-4 {{navs['contacto']}}" href="{{ url_for('home.contacto') }}">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

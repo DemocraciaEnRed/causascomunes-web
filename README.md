@@ -1,23 +1,40 @@
 # webcausascomunes
 
-Para que corra hay que tener python 3.x instalado.
+Credit goes to [@bunge.w](https://gitlab.com/bunge.w) on Gitlab for making this [project](https://gitlab.com/bunge.w/python-web-directus) <3 
 
-Una vez instalado solo hay que instalar Flask haciendo `pip3 install flask`.
+---
 
-Para correrlo:
+Para correrlo primero hay que crear el entorno de python:
 - ubicarse en la carpeta del proyecto
-- configurar la variable de entorno `export FLASK_APP=app`
-- ejectuar `flask run`
+- crear el virtual environment `python3 -m venv venv`
+- activarlo `source venv/bin/activate`
+- instalar dependencias `pip install -r requirements.txt`
 
-Para acceder entrar por [http://localhost:5000](http://localhost:5000)
+Ya que el programa depende del contenido de Directus, debe crear el archivo `.env` en la carpeta `app` con las mismas variables que el `.env.example` que está en esa carpeta. Deberá conseguir el `DIRECTUS_TOKEN` del Directus que use. Una vez definido esto puede correr el servidor de la siguiente forma:
+- crear la variable de entorno `export LOAD_ENV=True` para que el servidor busque y cargue el `.env`
+- en desarrollo activar modo debug `export FLASK_ENV=development`
+- ejectuar `flask run`
+- debería haber hosteado en [http://localhost:5000]()
+
+También hay un script para ejecutar todo esto de una haciendo `source run.sh` 
+
+---
+
+### Documentación vieja 
+
+Página web que trae contenido (imágenes y textos) de Directus.
+
+Para que corra hay que tener python 3.x instalado y acceso a algún Directus.
+
+El Directus debe tener las tablas `textos` e `imagenes` que es de donde reposa la mayor parte del contenido del site. Además, donde sea que haya una estructura de listados en el site, por ejemplo un carousel o un ul, debe haber una respectiva tabla de `items_<concepto>` con la cantidad de columnas que hagan falta para construir un item del listado. Por ej., si en un lugar del site hay una colección de cajas clickeables con título, imagen de fondo y url, se debe hacer la tabla `items_algo_descriptivo` con las columnas `titulo | imagen_fondo | url`.
 
 El archivo `config.py` sirve para algunas configuraciones:
 - **SERVER_HOST** en qué IP se hosteará la página
 - **SERVER_PORT** el puerto
-- **USE_DIRECTUS** *\[True|False\]* si el site busca los textos e imágenes en el servidor Directus o en `directus_fake.py`
-- **USE_EXTENSIONS** *\[True|False\]* si el site carga las extensiones de bases de datos y login o no
 - **USE_SCSS** *\[True|False\]* si se usa Flask-Scss para compilar en vivo los `.scss` a `.css` o no
+- **DIRECTUS_URL_INTERNAL** la dirección a la que se irá a buscar la api
+- **DIRECTUS_URL_EXTERNAL** la dirección pública de Directus (se usa en las urls de la imágenes en los htmls)
 
 Ojo con la configuraciones *\[True|False\]* que deben tener la primer letra mayúscula, tal cual como se lee
 
-Si desean usar Flask-Scss hay que instalarlo haciendo `pip3 install flask-scss` y habilitar la configuración **USE_SCSS**. A partir de ese momento, cada vez que editen un `.scss` va a generar su `.css` en tiempo real **pisando el que ya estaba**.
+Cuidado al utilizar Flask-scss ya que cada vez que editen un `.scss` va a generar su `.css` en tiempo real **pisando el que ya estaba**.

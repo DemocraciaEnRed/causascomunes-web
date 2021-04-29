@@ -1,20 +1,24 @@
-<section class="portada-seccion jumbotron mt-md-3 text-center">
-    <div class="bgimg-container">
-        <img class="bgimg" src="{{ create_img_src(dimgs['fondo'], isstatic) }}">
-    </div>
-    <h1 class="my-5 py-5">{{dtextos.get('portada')['titulo']}}</h1>
-    <ul id="nav-secondary" class="nav nav-secondary justify-content-center">
-        <li class="nav-item">
-            <a class="nav-link scrollTo" href="#definicion">De qué se trata?</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link scrollTo" href="#temas">Temas</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link scrollTo" href="#seguidores">Quienes la siguen?</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link scrollTo" href="#actividades">Qué hacemos?</a>
-        </li>
-    </ul>
+{% set bg_img_path = 'img/backgrounds/causas/mosaico-halfcolor-' + causa + '.png' %}
+{% set bg_img_url = url_for('home.static', filename=bg_img_path) %}
+
+<section class="portada-seccion jumbotron mt-0 text-center" style="background-image: url('{{ bg_img_url }}');">
+    <h1 class="mt-1 mt-md-5 pb-0">{{dtextos.get('portada')['titulo']}}</h1>
+    <h4 class="mb-5 pb-3 px-3">{{dtextos.get('portada')['subtitulo']}}</h4>
 </section>
+<ul id="nav-secondary" class="nav nav-secondary py-4 bg-color-solido justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link scrollTo text-color-{{causa}}" href="#definicion">Presentación</a>
+    </li>
+    <!--<li class="nav-item">
+            <a class="nav-link scrollTo text-color-{{causa}}" href="#tema">Tema</a>
+        </li>-->
+    <li class="nav-item">
+        <a class="nav-link scrollTo text-color-{{causa}}" href="#colaborar">¿Cómo colaborar?</a>
+    </li>
+    <!-- <li class="nav-item">
+            <a class="nav-link scrollTo text-color-{{causa}}" href="#compromisos">Compromisos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link scrollTo text-color-{{causa}}" href="#wiki">Wiki</a>
+        </li> -->
+</ul>

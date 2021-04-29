@@ -34,64 +34,66 @@
                   .text-color-ambiente {
                     color: #39a95e; }
 
-                    body {
-                      font: 100% 'Barlow', sans-serif;
-                      color: black; }
+                    .text-color-derechos-digitales {
+                      color: #f15b28; }
 
-                      img {
-                        max-width: 100%; }
+                      .fill-color-vivienda {
+                        fill: #194a9a; }
 
-                        .no-gutters {
-                          margin-right: 0;
-                          margin-left: 0; }
-                          .no-gutters > .col, .no-gutters > [class*="col-"] {
-                            padding-right: 0;
-                            padding-left: 0; }
+                        .fill-color-transparencia {
+                          fill: #e61937; }
 
-.section {
-  background-color: #ffffff; }
-  .section.jumbotron-fluid {
-    margin-bottom: auto;
-    padding-top: 3rem;
-    padding-bottom: 3rem; }
-    @media (min-width: 768px) {
-      .section.jumbotron-fluid {
-        padding-top: 6rem;
-        padding-bottom: 6rem;   }
-}
-  .section:nth-child(odd) {
-    background-color: #ffffff; }
-    .section:nth-child(even) {
-      background-color: #fbfcfd; }
+                          .fill-color-trabajo {
+                            fill: #e71869; }
 
-.section__title {
-  color: #2a4b8c;
-  font-size: 1.25rem;
-  font-weight: 600; }
-  @media (min-width: 768px) {
-    .section__title {
-      font-size: 2rem;   }
-}
+                            .fill-color-genero {
+                              fill: #774997; }
 
-.section__subtitle {
-  font-size: 0.9rem;
-  line-height: 1.3rem;
-  margin-top: 1rem; }
-  @media (min-width: 768px) {
-    .section__subtitle {
-      font-size: 1.15rem;
-      line-height: 1.75rem;   }
-}
+                              .fill-color-drogas {
+                                fill: #f9b112; }
 
-.btn-primary {
-  border-radius: 2rem;
-  background-color: #2a4b8c;
-  border-color: #2a4b8c;
-  color: #ffffff;
-  border-width: 3px; }
-  .btn-primary:hover {
-    background-color: #ffffff;
-    color: #2a4b8c; }
+                                .fill-color-ciencia {
+                                  fill: #008daf; }
+
+                                  .fill-color-ambiente {
+                                    fill: #39a95e; }
+
+                                    .fill-color-derechos-digitales {
+                                      fill: #f15b28; }
+
+                                      .vertical-align {
+                                        display: flex;
+                                        align-items: center; }
+
+                                        .text-color-primario {
+                                          color: #2a4b8c; }
+
+                                          body {
+                                            font: 100% 'Barlow', sans-serif;
+                                            color: black; }
+
+                                            .padding-onditaazul {
+                                              padding-top: 12vw; }
+
+                                              .card {
+                                                border-radius: 20px;
+                                                border: none; }
+
+                                                .card-with-shadow {
+                                                  box-shadow: 0 40px 40px 0 rgba(119, 119, 119, 0.15); }
+
+                                                  .card-title {
+                                                    font-size: 1.15rem; }
+
+                                                    .btn-primary {
+                                                      border-radius: 2rem;
+                                                      background-color: #2a4b8c;
+                                                      border-color: #2a4b8c;
+                                                      color: #ffffff;
+                                                      border-width: 3px; }
+                                                      .btn-primary:hover {
+                                                        background-color: #ffffff;
+                                                        color: #2a4b8c; }
 
 .btn-primary-inverted {
   background-color: #ffffff;
@@ -118,70 +120,129 @@
   .btn-shadow {
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16); }
 
-    .card {
+    .form-control {
       border-radius: 20px;
-      border: none; }
+      border: solid 1px rgba(60, 60, 60, 0.3); }
 
-      .card-with-shadow {
-        box-shadow: 0 40px 40px 0 rgba(119, 119, 119, 0.15); }
+      label {
+        color: #1d1d1b;
+        padding-left: 1rem; }
 
-        .card-title {
-          font-size: 1.15rem; }
+        .backtotop {
+          position: fixed;
+          bottom: 2em;
+          right: 2em;
+          color: #ffffff;
+          background-color: rgba(0, 0, 0, 0.3);
+          font-size: 12px;
+          padding: 1em;
+          display: none; }
+          .backtotop:hover {
+            color: #ffffff; }
+            @media (max-width: 576px) {
+              .backtotop {
+                padding: 0.5rem;
+                font-size: 10px !important;   }
+}
 
-          .form-control {
-            border-radius: 20px;
-            border: solid 1px rgba(60, 60, 60, 0.3); }
+img {
+  max-width: 100%; }
 
-            label {
-              color: #1d1d1b;
-              padding-left: 1rem; }
+  .no-gutters {
+    margin-right: 0;
+    margin-left: 0; }
+    .no-gutters > .col, .no-gutters > [class*="col-"] {
+      padding-right: 0;
+      padding-left: 0; }
 
-              .portada {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-                justify-content: space-around;
-                background-color: #ffffff; }
-                @media (min-width: 768px) {
-                  .portada {
-                    flex-wrap: nowrap;
-                    justify-content: center;
-                    align-items: end;   }
+.section {
+  position: relative;
+  background-color: #ffffff; }
+  .section.jumbotron-fluid {
+    margin-bottom: auto;
+    padding-top: 3rem;
+    padding-bottom: 3rem; }
+    @media (min-width: 768px) {
+      .section.jumbotron-fluid {
+        padding-top: 6rem;
+        padding-bottom: 6rem;   }
 }
-                  @media (min-width: 768px) {
-                    .portada .container {
-                      max-width: 35%;   }
+
+.section__title {
+  color: #2a4b8c;
+  font-size: 1.25rem;
+  font-weight: 600; }
+  @media (min-width: 768px) {
+    .section__title {
+      font-size: 2rem;   }
 }
-                @media (min-width: 992px) {
-                  .portada {
-                    background-color: transparent;   }
+
+.section__subtitle, .section__subtitle p {
+  font-size: 0.9rem;
+  line-height: 1.3rem;
+  margin-top: 1rem; }
+  @media (min-width: 768px) {
+    .section__subtitle, .section__subtitle p {
+      font-size: 1.15rem;
+      line-height: 1.75rem;   }
 }
-                  .portada h1 img {
-                    width: 204px; }
-                    @media (min-width: 992px) {
-                      .portada h1 img {
-                        max-width: 525px;
-                        width: 100%;   }
+
+.portada {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #ffffff;
+  background-image: url('/static/img/manifiesto-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 9rem;
+  padding-bottom: 4rem;
+  margin-bottom: 0; }
+  @media (min-width: 768px) {
+    .portada {
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: end;   }
 }
-                @media (min-width: 768px) {
-                  .portada p {
-                    font-size: 1.25rem;
-                    max-width: 80%;   }
+    @media (min-width: 992px) {
+      .portada {
+        padding-top: 12rem;
+        background-color: transparent;   }
 }
-                .portada .portada__img {
-                  max-width: 80%;
-                  order: -1; }
-                  @media (min-width: 768px) {
-                    .portada .portada__img {
-                      order: initial;
-                      max-width: 40%;   }
+      @media (min-width: 992px) {
+        .portada .container {
+          max-width: 40%;   }
+}
+  .portada h1 img {
+    width: 304px; }
+    @media (min-width: 576px) {
+      .portada h1 img {
+        max-width: 455px;
+        width: 100%;   }
+}
+      @media (min-width: 992px) {
+        .portada h1 img {
+          max-width: 525px;
+          width: 100%;   }
+}
+  @media (min-width: 768px) {
+    .portada p {
+      font-size: 1.25rem;
+      max-width: 80%;   }
+}
+  .portada .portada__img {
+    max-width: 80%;
+    order: -1; }
+    @media (min-width: 768px) {
+      .portada .portada__img {
+        order: initial;
+        max-width: 40%;   }
 }
 
 .manifiesto {
-  background-image: url('/static/img/manifiesto-background.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: #fbfcfd; }
+  background-color: #f4f9ff;
+  position: relative; }
   .manifiesto p {
     color: #1d1d1b;
     font-size: 0.9rem;
@@ -191,172 +252,153 @@
         font-size: 1rem;
         line-height: 1.75rem;   }
 }
-
-.section__signature {
-  color: #1d1d1b;
-  font-style: italic; }
-  @media (min-width: 768px) {
-    .section__signature {
-      font-size: 1.15rem;   }
-}
-    .section__signature:before {
-      content: " ";
-      background-color: #2a4b8c;
-      width: 55px;
-      height: 5px;
-      margin-right: 2rem;
-      display: inline-block;
-      vertical-align: middle; }
+  .manifiesto .video, .manifiesto .col-lg-6 {
+    z-index: 1; }
+    .manifiesto .manifiesto-frase {
+      color: #2a4b8c;
+      z-index: 1;
+      font-size: 40px;
+      margin-bottom: 30px; }
       @media (min-width: 768px) {
-        .section__signature:before {
-          opacity: 0.5;   }
+        .manifiesto .manifiesto-frase {
+          font-size: 55px;   }
+}
+  .manifiesto .row-manifiesto-text {
+    text-align: justify; }
+    .manifiesto .btn-leer-mas {
+      margin-bottom: 15px;
+      padding-left: 30px;
+      padding-right: 30px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto; }
+      .manifiesto .section__signature {
+        color: #1d1d1b;
+        font-style: italic; }
+        @media (min-width: 768px) {
+          .manifiesto .section__signature {
+            font-size: 1.15rem;   }
+}
+          .manifiesto .section__signature:before {
+            content: " ";
+            background-color: #2a4b8c;
+            width: 55px;
+            height: 5px;
+            margin-right: 2rem;
+            display: inline-block;
+            vertical-align: middle; }
+            @media (min-width: 768px) {
+              .manifiesto .section__signature:before {
+                opacity: 0.5;   }
 }
 
-.carousel {
-  background: #ffffff; }
+.causas {
+  background-image: url('/static/img/manifiesto-background.png');
+  background-repeat: no-repeat;
+  background-size: cover; }
+  @media (min-width: 1200px) {
+    .causas .container-fluid {
+      padding: 0 12rem;   }
+}
+  .causas .caja-causa .inner {
+    border-radius: 20px; }
+    .causas .caja-causa .inner:hover img {
+      opacity: 0.3; }
+    .causas .caja-causa .inner.inner-vivienda {
+      background-color: #194a9a; }
+      .causas .caja-causa .inner.inner-transparencia {
+        background-color: #e61937; }
+        .causas .caja-causa .inner.inner-trabajo {
+          background-color: #e71869; }
+          .causas .caja-causa .inner.inner-genero {
+            background-color: #774997; }
+            .causas .caja-causa .inner.inner-drogas {
+              background-color: #f9b112; }
+              .causas .caja-causa .inner.inner-ciencia {
+                background-color: #008daf; }
+                .causas .caja-causa .inner.inner-ambiente {
+                  background-color: #39a95e; }
+                  .causas .caja-causa .inner.inner-derechos-digitales {
+                    background-color: #f15b28; }
+                    .causas .caja-causa .inner img {
+                      position: relative;
+                      opacity: 0.2;
+                      border-radius: 20px;
+                      width: 100%; }
+                      .causas .caja-causa .inner h4 {
+                        position: absolute;
+                        transform: translate(50%, -50%);
+                        top: 50%;
+                        right: 50%;
+                        font-size: 2rem;
+                        color: white;
+                        font-weight: bolder;
+                        text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.63); }
 
-  .carousel-cell {
-    width: 80%;
-    height: 340px;
-    margin-right: 1rem;
-    border-radius: 20px;
-    counter-increment: carousel-cell;
-    color: #ffffff; }
+#acciones {
+  background-color: #e4eefa; }
+  #acciones .column-content .column-img {
+    height: 180px; }
+    #acciones .column-content .column-title {
+      font-size: 2.7rem;
+      color: #2a4b8c; }
+      #acciones .column-content .btn {
+        padding: 0.65rem 1.8rem; }
+
+.candidates {
+  color: #2a4b8c;
+  background-color: #f4f9ff !important; }
+  .candidates .section__title {
+    font-size: 1.5rem; }
     @media (min-width: 768px) {
-      .carousel-cell {
-        width: 30%;
-        margin-right: 2rem;
-        height: 400px;   }
+      .candidates .section__title {
+        font-size: 2.5rem;   }
 }
-      .carousel-cell a:target, .carousel-cell a:hover, .carousel-cell a {
-        color: #ffffff;
-        text-decoration: #ffffff; }
-        .carousel-cell .title {
-          font-size: 1.15rem;
-          font-weight: 600;
-          margin-bottom: 1rem; }
-          @media (min-width: 768px) {
-            .carousel-cell .title {
-              font-size: 1.5rem;   }
-}
-    .carousel-cell .text {
-      font-size: 0.9rem; }
-      @media (min-width: 768px) {
-        .carousel-cell .text {
-          font-size: 1rem;   }
-}
-    .carousel-cell img {
-      height: 6rem; }
-
-.flickity-button {
-  display: none;
-  box-shadow: 0 15px 15px 0 rgba(119, 119, 119, 0.15);
-  transition: box-shadow ease-in 0.1s; }
-  .flickity-button[disabled] {
-    visibility: hidden; }
+  .candidates .section__subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem; }
     @media (min-width: 768px) {
-      .flickity-button {
-        display: block;   }
-}
-      .flickity-button:focus, .flickity-button:hover {
-        box-shadow: 0 15px 15px 0 rgba(42, 75, 140, 0.5); }
-
-button.flickity-prev-next-button.previous {
-  left: -70px; }
-  button.flickity-prev-next-button.next {
-    right: -70px; }
-
-.flickity-page-dots {
-  position: relative; }
-  @media (min-width: 768px) {
-    .flickity-page-dots {
-      visibility: hidden;   }
-}
-    .flickity-page-dots .dot {
-      width: 19px;
-      height: 19px;
-      border: solid 1px #2a4b8c;
-      background-color: #ffffff; }
-
-.flickity-button-icon path {
-  fill: #2a4b8c; }
-
-.flickity-enabled.is-draggable .flickity-viewport {
-  cursor: auto; }
-
-  .section.candidates {
-    background-color: #2a4b8c; }
-    .section.candidates .section__title {
-      color: #ffffff;
-      font-size: 1.5rem; }
-      @media (min-width: 768px) {
-        .section.candidates .section__title {
-          font-size: 2.5rem;   }
-}
-    .section.candidates .section__subtitle {
-      font-size: 0.9rem;
-      color: #ffffff;
-      margin-bottom: 1.5rem; }
-      @media (min-width: 768px) {
-        .section.candidates .section__subtitle {
-          font-size: 1.25rem;   }
-}
-    .section.candidates .btn {
-      order: 1; }
-      @media (min-width: 768px) {
-        .section.candidates .btn {
-          order: initial;   }
-}
-
-.card--novedades {
-  box-shadow: 0 40px 40px 0 rgba(119, 119, 119, 0.15);
-  border-radius: 0;
-  background: #ffffff; }
-  .card--novedades .card-title {
-    font-size: 1rem; }
-    @media (min-width: 768px) {
-      .card--novedades .card-title {
+      .candidates .section__subtitle {
         font-size: 1.25rem;   }
 }
-      .card--novedades .card-title a span {
-        display: inline-block; }
-        @media (min-width: 768px) {
-          .card--novedades .card-title a span {
-            max-width: 80%;   }
-}
-      .card--novedades .card-title a .fa {
-        font-size: 1.5rem; }
-
-.card-hashtag {
-  font-size: 0.9rem;
-  display: inline-block;
-  background-color: #eff1f4;
-  padding: 0 1rem;
-  border-radius: 1rem;
-  line-height: 1.8;
-  margin-bottom: 0.5rem;
-  text-transform: capitalize; }
-
-  .twitter-timeline__title {
-    color: #2a4b8c;
-    font-size: 1.25rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-    text-align: left; }
+  .candidates .btn {
+    order: 1; }
     @media (min-width: 768px) {
-      .twitter-timeline__title {
-        font-size: 1.5rem;   }
+      .candidates .btn {
+        order: initial;   }
+}
+  .candidates .img-wrapper {
+    display: flex;
+    justify-items: center;
+    align-items: center; }
+    .candidates .img-wrapper img {
+      border-radius: 20px; }
+      @media (max-width: 768px) {
+        .candidates .img-wrapper img {
+          max-width: 340px;
+          margin: 0 auto;   }
 }
 
 .eventos {
-  background-image: url('/static/img/manifiesto-background.svg');
+  background-image: url('/static/img/manifiesto-background.png');
   background-repeat: no-repeat;
   background-size: cover; }
-  .eventos .list-group {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
-    .eventos .card {
-      height: 100%; }
+  .eventos .card {
+    height: 100%;
+    justify-content: center; }
+    .eventos .card-body {
+      flex: 0; }
+      .eventos .twitter-timeline__title {
+        color: #2a4b8c;
+        font-size: 1.25rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        text-align: left; }
+        @media (min-width: 768px) {
+          .eventos .twitter-timeline__title {
+            font-size: 1.5rem;   }
+}
 
 .agenda .list-group-item {
   padding-left: 0;
@@ -388,3 +430,87 @@ button.flickity-prev-next-button.previous {
     text-transform: capitalize; }
     .agenda .list-group-item img {
       height: 3rem; }
+
+.activa {
+  background-image: url('/static/img/manifiesto-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #2a4b8c;
+  font-size: 1.15rem !important; }
+  @media (min-width: 768px) {
+    .activa {
+      font-size: 1.25rem !important;   }
+}
+    .activa .img-megafono-wrapper {
+      display: inline-block; }
+      .activa .img-megafono-wrapper img {
+        position: relative;
+        top: -2px;
+        height: 55px; }
+        @media (min-width: 768px) {
+          .activa .img-megafono-wrapper img {
+            height: 75px;   }
+}
+  .activa .col-paso {
+    padding: 0 0.6rem;
+    text-align: center; }
+    @media (min-width: 992px) {
+      .activa .col-paso {
+        padding: 0 2rem;   }
+}
+      @media (min-width: 768px) {
+        .activa .col-paso {
+          text-align: left;   }
+}
+        .activa .col-paso .img-wrapper {
+          display: inline; }
+          @media (min-width: 768px) {
+            .activa .col-paso .img-wrapper {
+              display: block;   }
+}
+            .activa .col-paso .img-wrapper svg {
+              height: 50px; }
+              @media (min-width: 768px) {
+                .activa .col-paso .img-wrapper svg {
+                  height: 100px;   }
+}
+    .activa .col-paso .span-wrapper span {
+      display: block;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%); }
+  .activa .row-carita {
+    -webkit-border-radius: 57px;
+    -moz-border-radius: 57px;
+    border-radius: 57px;
+    background-color: #E4EDFF; }
+    .activa .row-carita .carita-wrapper {
+      margin: 0 auto;
+      font-weight: bold; }
+      .activa .row-carita .carita-wrapper img {
+        height: 45px; }
+        @media (max-width: 768px) {
+          .activa .row-carita .carita-wrapper img {
+            display: block;
+            margin: 0 auto !important;
+            margin-bottom: 0.5rem !important;   }
+}
+          @media (min-width: 768px) {
+            .activa .row-carita .carita-wrapper img {
+              position: relative;
+              top: 50%;
+              transform: translateY(-50%);   }
+}
+  .activa .row-boton > div {
+    margin: 0 auto; }
+    .activa .row-boton > div a {
+      font-weight: 600;
+      font-size: 1.15rem !important; }
+      @media (min-width: 768px) {
+        .activa .row-boton > div a {
+          font-size: 1.25rem !important;   }
+}
+  .activa svg #_1, .activa svg #_2, .activa svg #_3, .activa svg #_4 {
+    fill: #2a4b8c; }
+    .activa svg #Elipse_343 {
+      stroke: #2a4b8c; }
